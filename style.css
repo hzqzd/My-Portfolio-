@@ -1,0 +1,86 @@
+/* Full-screen dark container background */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Framing the size of your images */
+.photo-sequence-container {
+    position: relative;
+    width: 150px;   /* Adjust dimensions based on your Figma design */
+    height: 150px;
+    margin: 0 auto 30px auto;
+}
+
+/* Base styles for all 3 layered photos */
+.loader-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Makes your square images crisp circles */
+    object-fit: cover;
+    border: 3px solid #3b82f6;
+    
+    /* Initially invisible until their specific animation begins */
+    opacity: 0; 
+    
+    /* Connects our custom spin-and-grow movement routine below */
+    animation: spinAndSwap 2s ease-in-out forwards;
+}
+
+/* Staggering the timing for each picture */
+.p1 {
+    animation-delay: 0s;     /* Photo 1 starts instantly */
+}
+
+.p2 {
+    animation-delay: 1.8s;   /* Photo 2 starts right as Photo 1 fades out */
+}
+
+.p3 {
+    animation-delay: 3.6s;   /* Photo 3 starts right as Photo 2 fades out */
+}
+
+/* The loading text fade-in style */
+.loading-text {
+    color: #ffffff;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    animation: pulseText 1.5s ease-in-out infinite alternate;
+}
+
+/* THE MOVEMENT CONTROLLER */
+@keyframes spinAndSwap {
+    0% {
+        transform: scale(0.3) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1; /* Smoothly appears while spinning up to full scale */
+    }
+    85% {
+        transform: scale(1) rotate(180deg);
+        opacity: 1; /* Stays clean and visible in the center for a second */
+    }
+    100% {
+        transform: scale(1.4) rotate(360deg);
+        opacity: 0; /* Spins faster, expands outwards, and vanishes */
+    }
+}
+
+/* Subtle pulse animation for the text below the images */
+@keyframes pulseText {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
