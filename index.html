@@ -1,29 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="viewport">
-        <div id="canvas" class="canvas">
-            <section class="portfolio-section" style="top: 200px; left: 300px;">
-                <h1>Welcome to My Canvas</h1>
-                <p>Try clicking and dragging the background around!</p>
-            </section>
-            
-            <section class="portfolio-section" style="top: 800px; left: 1200px;">
-                <h2>About Me</h2>
-            </section>
+  <div class="viewport">
+    <aside id="main-sidebar" class="torn-paper">
+
+        <div class="cartoon-face-nav">
+          <img id="smile-img" class="cartoon-face-nav" src="images/smile.png" alt="Cartoon Face Logo">
+          <img id="wink-img" class="cartoon-face-nav" src="images/wink.png" alt="Cartoon Face Logo">
+          <img id="laugh-img" class="cartoon-face-nav" src="images/laugh.png" alt="Cartoon Face Logo">
         </div>
+
+        <div>
+          <p class="nav-instruction">use this nav to directly drag to the section you want to view</p>
+        </div>
+
+      <nav class="nav-container">
+        <ul class="nav-links">
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Technical Skills</a></li>
+          <li><a href="#activities">Activities</a></li>
+        </ul>
+      </nav>
+
+      <div class="social-links">
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="https://whatsapp.com" target="_blank">Whatsapp</a>
+      </div>
+    </aside>
+
+    <div id="canvas" class="canvas">
+      <section id="about" class="portfolio-section" >
+        <img src="images/formal.png" alt="Profile Picture" class="profile-picture">
+        <h1>Hi I'm Haziq Aizad</h1>
+        <p id="about-description">I'm Haziq, an aspiring software developer driven by curiosity and a passion for continuous learning. Technology evolves every day, and that's what excites me most. I enjoy exploring new programming languages, frameworks, and tools while applying them to build meaningful projects. I'm committed to growing both personally and professionally by embracing new challenges, refining my coding skills, and expanding my understanding of modern technologies. Every project is an opportunity to learn, improve, and take one step closer to becoming the developer I aspire to be.</p>
+      </section>
+
+      <section id="education" class="portfolio-section">
+        <h2>Education</h2>
+      </section>
+
+      <section id="projects" class="portfolio-section">
+        <h1>Project</h1>
+        <p>click to view</p>
+      </section>
+
+      <section id="skills" class="portfolio-section">
+        <h1>Technical Skills</h1>
+        <p>click to view</p>
+      </section>
+
+      <section id="activities" class="portfolio-section">
+        <h1>Activities</h1>
+        <p>click to view</p>
+      </section>
     </div>
+  </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

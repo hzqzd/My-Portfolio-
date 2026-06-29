@@ -1,0 +1,92 @@
+/* Setup the main viewport window container */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2b1d0c;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto; /* Allows scrolling to see the whole 3000px layout map */
+}
+
+/* 1. THE GRID PARENT CONTAINER */
+.canvas-grid-parent {
+    width: 3000px;
+    height: 2000px;
+    padding: 50px;
+    box-sizing: border-box;
+    background-image: radial-gradient(#694305 2px, transparent 2px);
+    background-size: 40px 40px;
+
+    display: grid;
+    /* Create 3 massive equal tracks across your space */
+    grid-template-columns: 1fr 1fr 1fr;
+    /* Create 2 rows down your height */
+    grid-template-rows: 500px 500px;
+    gap: 50px;
+
+    /* DRAWING THE LAYOUT VISUAL MAP DIRECTLY IN CSS */
+    grid-template-areas: 
+        "projects  projects     ."
+        "skills   about         activities";
+}
+
+/* 2. THE CHILD CARDS LAYERED WITH NESTED FLEXBOX */
+.portfolio-section {
+    background-color: #97825f;
+    border: 3px solid #d4be96;
+    border-radius: 16px;
+    padding: 30px;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
+    /* Turning each individual card partition into a Flexbox engine */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+/* 3. ASSIGNING INDIVIDUAL SECTIONS TO THEIR PLACES ON THE MAP */
+#about-card { 
+    grid-area: about; 
+}
+
+#projects-card { 
+    grid-area: projects; 
+    background-color: #7a6643; /* Different shade to stand out as featured */
+}
+
+#skills-card { 
+    grid-area: skills; 
+}
+
+#activities-card { 
+    grid-area: activities; 
+}
+
+/* Quick design decorations for the content inside the cards */
+h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    color: #f7e6c4;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f0f0f0;
+    flex-grow: 1; /* Pushes the button to the absolute bottom of the card */
+}
+
+.btn {
+    background-color: #f7e6c4;
+    color: #3d2b13;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+}

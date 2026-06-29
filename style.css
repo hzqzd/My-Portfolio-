@@ -8,7 +8,7 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden; /* Hides traditional mouse-wheel scrollbars */
-    background-color: #0f172a;
+    background-color: #ffefd6;
 }
 
 .viewport {
@@ -18,20 +18,161 @@ body, html {
 }
 
 .canvas {
-    width: 3000px;  /* The actual total size of your massive workspace area */
+    width: 3000px;
     height: 3000px;
     position: absolute;
-    background-image: radial-gradient(#334155 1px, transparent 1px); /* Creates a cool grid dot matrix look */
+    background-image: radial-gradient(#694305 2px, transparent 2px); /* Creates a cool grid dot matrix look */
     background-size: 40px 40px;
+
+    display: grid;
+    grid-template-rows: repeat(3, 500px);
+    grid-template-columns: repeat(3, 1fr);
+
+    place-items: center; 
+    gap: 20px;
+
+        grid-template-areas: 
+        "activities     .         education"
+        ".              about         ."
+        "skills         .           projects";
 }
 
 /* Positioning layout blocks explicitly across coordinates */
 .portfolio-section {
-    position: absolute;
-    width: 500px;
-    background: #1e293b;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background: #97825f;
     color: white;
     padding: 40px;
-    border-radius: 12px;
-    border: 1px solid #334155;
+    border-radius: 20px;
+    border: none;
+    z-index: 1;
+}
+
+/* ABOUT CARD */
+#about {
+    grid-area: about;
+    width: 500px;
+}
+.profile-picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#about-description {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* EDUCATION CARD */
+#education {
+    grid-area: education;
+}
+
+/* PROJECT CARD */
+#projects {
+    grid-area: projects;
+}
+
+/* SKILLS CARD */
+#skills {
+    grid-area: skills;
+}
+
+/* ACTIVITIES CARD */
+#activities {
+    grid-area: activities;
+}
+
+aside {
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 200px;
+    height: 100vh;            /* Fills the entire screen height */
+    background-color: #ffffff; /* Crisp white paper look */
+    padding: 20px;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.05);
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.cartoon-face-nav {
+    display:flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    position: relative;
+    width: 140px;
+
+}
+
+#smiley-face {
+    z-index: 1001; 
+}
+#wink-face {
+    z-index: 1002;
+}
+#laugh-face {
+    z-index: 1003;
+}
+
+.nav-instruction {
+    padding: 20px 0px;
+}
+
+/* 1. The Outer Nav Wrapper */
+.nav-container {
+    width: 100%;
+    height: 100%;             /* Give it full height so there is room to center vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Centers the UL vertically on the Y-axis */
+    align-items: center;      /* Centers the UL horizontally on the X-axis */
+}
+
+/* 2. The UL Link List */
+.nav-links {
+    list-style: none;         /* Removes the default bullet layout */
+    padding: 0;               /* FIX: Strips away the hidden 40px browser padding! */
+    margin: 0;                /* Strips away default browser margins */
+    
+    display: flex;
+    flex-direction: column;   /* Stacks the links cleanly */
+    align-items: center;      /* Centers the text of each link horizontally */
+    gap: 50px;                /* Adds clean spacing between links */
+}
+
+/* 3. Style the clickable text anchors */
+.nav-links a {
+    display: block;        /* 1. Transform it from text into a solid box */
+    width: 100%;
+    padding: 12px 24px;
+    text-decoration: none;
+    color: #694305;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0;
+}
+
+.social-links a {
+    display: block;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-decoration: none;
+    color: #694305;
+    font-weight: bold;
 }
