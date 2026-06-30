@@ -91,3 +91,23 @@ function centerSection(section) {
         ease: "power2.out"
     });
 }
+
+// Line 1: Go into index.html and find EVERY single element that has class="portfolio-section".
+// Store them all together inside a list variable called allCards.
+const allCards = document.querySelectorAll('.portfolio-section');
+
+// Line 2: Because allCards is a list of multiple cards, we use .forEach() 
+// to look through them one by one. Think of this like dealing a deck of cards out on a table.
+allCards.forEach(card => {
+    
+    // Line 3: For each individual card on the table, attach a sensor that 
+    // listens for a physical finger tap or mouse click event.
+    card.addEventListener('click', function() {
+        
+        // Line 4: "this" means the exact card you just clicked. 
+        // Go to its class list, look for the word "expanded". 
+        // If it's not there, add it. If it is there, delete it.
+        this.classList.toggle('expanded');
+        
+    });
+});

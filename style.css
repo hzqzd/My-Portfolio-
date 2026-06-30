@@ -64,9 +64,46 @@ body, html {
     border-radius: 20px;
     border: none;
     z-index: 1;
+    transition: width 0.4s ease-in-out, 
+                height 0.4s ease-in-out, 
+                background-color 0.3s;
 
     /* ADD THIS LINE: Makes sure you can still click things inside your cards */
     pointer-events: auto;
+}
+
+.portfolio-section.expanded {
+    width: 750px;         /* Expands much wider than the original 500px width */
+    height: 600px;        /* Gives it extra height to display more layout content */
+    background: #736142;  /* Optional: slightly deepens the color so it looks focused */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Ensures this expanded card floats cleanly over everything else */
+    z-index: 10;
+}
+
+/* Hide the extra content when the card is small */
+.expanded-content {
+    display: none;
+    margin-top: 20px;
+}
+
+/* Show the extra content ONLY when the parent card has the .expanded class! */
+.portfolio-section.expanded .expanded-content {
+    display: block;
+}
+
+/* Style the project title inside the expanded window */
+.portfolio-section.expanded h3 {
+    font-size: 28px;
+    color: #ffefd6;
+}
+
+/* Style the project text description inside the expanded window */
+.portfolio-section.expanded p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
 }
 
 /* ABOUT CARD */
@@ -137,7 +174,7 @@ aside {
 .avatar {
     position: absolute;
     width: 80%;
-    transition: opacity 0.2s;
+    transition: opacity 0.1s;
 }
 
 #wink-img {
