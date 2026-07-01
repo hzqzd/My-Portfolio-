@@ -111,3 +111,46 @@ allCards.forEach(card => {
         
     });
 });
+
+// 1. Grab all the slides and navigation buttons
+const explainations = document.querySelectorAll('.expanded-elaboration');
+const educationImages = document.querySelectorAll('.education-image');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentSlideIndex = 0; // Track which slide number is currently on screen
+
+// 2. Create a function to refresh which slide gets shown
+function updateSlides() {
+    // Look through all slides, remove the 'active' class to hide them
+    explainations.forEach(explaination => explaination.classList.remove('active'));
+    educationImages.forEach(image => image.classList.remove('active'));
+    
+    // Add 'active' back to just the single slide at our current index tracking number
+    explainations[currentSlideIndex].classList.add('active');
+    educationImages[currentSlideIndex].classList.add('active');
+}
+
+// 3. Monitor when the user clicks 'Next'
+nextBtn.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents the card click from triggering/closing
+    
+    currentSlideIndex++; // Move up by 1 slide position
+    if (currentSlideIndex >= explainations.length && educationImages.length > 0) 
+        {
+        currentSlideIndex = 0; // Loop back around to the first slide
+        }
+    updateSlides();
+});
+
+// 4. Monitor when the user clicks 'Prev'
+prevBtn.addEventListener('click', function(event) {
+    event.stopPropagation(); // Prevents conflicts
+    
+    currentSlideIndex--; // Go down by 1 slide position
+    if (currentSlideIndex < 0 && educationImages.length > 0) 
+        {
+        currentSlideIndex = explainations.length - 1; // Loop to the very last slide
+        }
+    updateSlides();
+});

@@ -1,135 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  </head>
 
-  <div class="viewport">
-    <aside id="main-sidebar" class="torn-paper">
+  <body>
 
-      <div class="cartoon-face-nav">
-        <img id="smile-img" class="avatar" src="images/smile.png" alt="smile-nav">
-        <img id="wink-img" class="avatar" src="images/wink.png" alt="wink-nav">
-        <!-- <img id="laugh-img" class="avatar" src="images/laugh.png" alt="laugh-nav">-->
-      </div>
+    <div class="viewport">
+      <aside id="main-sidebar" class="torn-paper">
 
-      <div>
-        <p class="nav-instruction">use this nav to directly drag to the section you want to view</p>
-      </div>
+        <div class="cartoon-face-nav">
+          <img id="smile-img" class="avatar" src="images/smile.png" alt="smile-nav">
+          <img id="wink-img" class="avatar" src="images/wink.png" alt="wink-nav">
+          <!-- <img id="laugh-img" class="avatar" src="images/laugh.png" alt="laugh-nav">-->
+        </div>
 
-      <nav class="nav-container">
-        <ul class="nav-links">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Technical Skills</a></li>
-          <li><a href="#activities">Activities</a></li>
-        </ul>
-      </nav>
+        <div>
+          <p class="nav-instruction">use this nav to directly drag to the section you want to view</p>
+        </div>
 
-      <div class="social-links">
-        <a href="https://github.com" target="_blank">GitHub</a>
-        <a href="https://whatsapp.com" target="_blank">Whatsapp</a>
-      </div>
-    </aside>
+        <nav class="nav-container">
+          <ul class="nav-links">
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Technical Skills</a></li>
+            <li><a href="#activities">Activities</a></li>
+          </ul>
+        </nav>
 
-    <div class="canvas-window">
-      <div id="canvas" class="canvas">
-        <section id="about" class="portfolio-section" >
-          <img src="images/formal.png" alt="Profile Picture" class="profile-picture">
-          <h1>Hi I'm Haziq Aizad</h1>
-          <p id="about-description">I'm Haziq, an aspiring software developer driven by curiosity and a passion for continuous learning. Technology evolves every day, and that's what excites me most. I enjoy exploring new programming languages, frameworks, and tools while applying them to build meaningful projects. I'm committed to growing both personally and professionally by embracing new challenges, refining my coding skills, and expanding my understanding of modern technologies. Every project is an opportunity to learn, improve, and take one step closer to becoming the developer I aspire to be.</p>
-        </section>
+        <div class="social-links">
+          <a href="https://github.com" target="_blank">GitHub</a>
+          <a href="https://whatsapp.com" target="_blank">Whatsapp</a>
+        </div>
+      </aside>
 
-        <section id="education" class="portfolio-section">
-          <h2>Education</h2>
-          <p>click to view</p>
+      <div class="canvas-window">
+        <div id="canvas" class="canvas">
 
-          <div class="expanded-content">
-            <h3>EDUCATION</h3>
+          <!--ABOUT ME SECTION-->
+          <section id="about" class="portfolio-section" >
+            <img src="images/formal.png" alt="Profile Picture" class="profile-picture">
+            <h1>Hi I'm Haziq Aizad</h1>
+            <p id="about-description">I'm Haziq, an aspiring software developer driven by curiosity and a passion for continuous learning. Technology evolves every day, and that's what excites me most. I enjoy exploring new programming languages, frameworks, and tools while applying them to build meaningful projects. I'm committed to growing both personally and professionally by embracing new challenges, refining my coding skills, and expanding my understanding of modern technologies. Every project is an opportunity to learn, improve, and take one step closer to becoming the developer I aspire to be.</p>
+          </section>
 
-            <!-- add picture -->
-            <p>January 2020 - March 2022</p>
-            <p>My passion for technology and coding began long before university. During the early years of high school, I enrolled in programming classes because I was fascinated by how software could solve real-world problems. Later, I transferred to TJTI, where I shifted my focus to Electrical Engineering. Although the COVID-19 pandemic changed the way we learned and much of my time was spent in the dormitory, it was still a valuable experience that taught me resilience, adaptability, and the importance of continuous learning. I successfully completed my SPM with strong results.</p>
+          <!--EDUCATION SECTION-->
+          <section id="education" class="portfolio-section">
+            <h2 class="section-title">Education</h2>
+            <p class="section-instruction">click to view</p>
 
-            <!-- add picture -->
-            <p>October 2022 - April 2023</p>
-            <p>Despite exploring a different field in high school, my passion for Information Technology never faded. After graduating, I chose the Physical Science in matriculation to continue building my technical knowledge. During this time, I strengthened my programming fundamentals using BlueJ and Java while improving my academic performance. I viewed my SPM results not as a limitation, but as motivation to push myself further. Through consistent effort and active participation in academic and extracurricular activities, I achieved the Dean's List in every semester and graduated with a CGPA of 3.88.</p>
-            
-            <!-- add picture -->
-            <p>October 2023 - present</p>
-            <p>Today, I am pursuing a Bachelor's Degree in Computer Science at Universiti Pertahanan Nasional Malaysia (UPNM), turning my long-standing passion into a professional career path. Throughout my university journey, I have actively participated in various programs, competitions, and activities that have helped me develop both technical and leadership skills. I have earned a place on the Dean's List for two semesters, and I currently maintain a CGPA of 3.38, with my internship yet to be included. As I continue learning, I remain committed to expanding my knowledge, improving my coding skills, and embracing new technologies that will help me grow as a computer science professional.</p>
-          
-        </section>
+            <div class="expanded-content">
 
-        <section id="projects" class="portfolio-section">
-          <h1>Project</h1>
-          <p>click to view</p>
+              <div class="expanded-title">
+                EDUCATION
+              </div>
 
-          <div class="expanded-content">
-            <h3>MY PROJECTS</h3>
-            <p>Throughout my Computer Science journey, I discovered that my interest in technology extends beyond just writing code. While web development sparked my passion for creating practical solutions, I also became fascinated by how data can uncover meaningful insights and how digital evidence can be analysed to solve cyber-related investigations. These experiences allowed me to explore three different areas of Computer Science—Web Development, Big Data Analytics, and Digital Forensics—each strengthening a different set of technical and problem-solving skills.</p>
+              <div class="education-slides">
 
-            <p>Web Development Projects</p>
-            <p>Building web applications has always been my primary interest. Throughout my degree, I developed several full-stack applications using PHP, MySQL, HTML, CSS, and JavaScript. My projects focused on creating secure, user-friendly systems with role-based authentication, database management, and responsive interfaces.</p>
+                <div class="image-container">
+                  <img id="education-slide-1" src="images/sttj.jpg" alt="Education Image" class="education-image active">
 
-            <p><strong>Highlighted Projects:</strong></p>
+                  <img id="education-slide-2" src="images/kms.jpg" alt="Education Image" class="education-image">
 
-            <p>EduTrackUPNM - A Final Year Project that streamlines student application management through role-based access control and automated CRUD operations.</p>
+                  <img id="education-slide-3" src="images/upnm.jpg" alt="Education Image" class="education-image">
+                </div>
 
-            <p>E-Library ALK - A digital library management system featuring customized dashboards, real-time tracking, and centralized data management for cadets and instructors.</p>
+                <div class="explaination-container">
+                  <div class="expanded-elaboration active">
+                    <p class="education-date">January 2020 - March 2022</p>
+                    <p>My passion for technology and coding began long before university. During the early years of high school, I enrolled in programming classes because I was fascinated by how software could solve real-world problems. Later, I transferred to TJTI, where I shifted my focus to Electrical Engineering. Although the COVID-19 pandemic changed the way we learned and much of my time was spent in the dormitory, it was still a valuable experience that taught me resilience, adaptability, and the importance of continuous learning. I successfully completed my SPM with strong results.</p>
+                  </div>
 
-            <p>Big Data Analytics Projects</p>
-            <p>As I explored data science, I learned how raw data can be transformed into valuable insights. Using Python and the CRISP-DM methodology, I worked with datasets containing over 1,000 records, performing data cleaning, preprocessing, statistical analysis, and visualization to support data-driven decision-making.</p>
+                  <div class="expanded-elaboration">
+                    <p class="education-date">October 2022 - April 2023</p>
+                    <p>Despite exploring a different field in high school, my passion for Information Technology never faded. After graduating, I chose the Physical Science in matriculation to continue building my technical knowledge. During this time, I strengthened my programming fundamentals using BlueJ and Java while improving my academic performance. I viewed my SPM results not as a limitation, but as motivation to push myself further. Through consistent effort and active participation in academic and extracurricular activities, I achieved the Dean's List in every semester and graduated with a CGPA of 3.88.</p>
+                  </div>
 
-            <p>Digital Forensics Projects</p>
-            <p>My curiosity about cybersecurity led me to digital forensics, where I learned how to investigate and analyse digital evidence. I worked on verifying file integrity using MD5 and SHA-256 hashing, extracting EXIF metadata, and examining hexadecimal data with HxD to recover and analyse hidden or corrupted digital artifacts.</p>
-          </div>
-        </section>
+                  <div class="expanded-elaboration">              
+                    <p class="education-date">October 2023 - present</p>
+                    <p>Today, I am pursuing a Bachelor's Degree in Computer Science at Universiti Pertahanan Nasional Malaysia (UPNM), turning my long-standing passion into a professional career path. Throughout my university journey, I have actively participated in various programs, competitions, and activities that have helped me develop both technical and leadership skills. I have earned a place on the Dean's List for two semesters, and I currently maintain a CGPA of 3.38, with my internship yet to be included. As I continue learning, I remain committed to expanding my knowledge, improving my coding skills, and embracing new technologies that will help me grow as a computer science professional.</p>
+                  </div>
 
-        <section id="skills" class="portfolio-section">
-          <h1>Technical Skills</h1>
-          <p>click to view</p>
+                </div>
+              </div>
 
-          <div class="expanded-content">
-            <h3>Technical Skills</h3>
-            <p>I enjoy learning new technologies and improving my skills through projects and hands-on experience. The tools below are the foundation I've built throughout my studies, and I'm always looking for new things to learn. Even this portfolio is part of my learning journey—a fun project where I get to practice coding while building something meaningful.</p>
+              <div class="slider-controls">
+                <button class="prev-btn">&#10094;</button>
+                <button class="next-btn">&#10095;</button>
+              </div>
 
-            <ul>
-              <li>Web Development: PHP, MySQL, HTML, CSS, JavaScript</li>
-              <li>Big Data Analytics: Python, CRISP-DM</li>
-              <li>Digital Forensics: Audacity, Open-Source Tools, HxD</li>
-            </ul>
-          </div>
-        </section>
+            </div>
+          </section>
 
-        <section id="activities" class="portfolio-section">
-          <h1>Activities</h1>
-          <p>click to view</p>
+          <!--PROJECTS SECTION-->
+          <section id="projects" class="portfolio-section">
+            <h1 class="section-title">Projects</h1>
+            <p class="section-instruction">click to view</p>
 
-          <div class="expanded-content">
-            <h3>Activities</h3>
-            <p>Pewaris Karisma : Stepped out of my comfort zone through team challenges that strengthened my communication, teamwork, and leadership skills.</p>
-            <p>Event Management : Worked with a team to manage audio systems during a large-scale sports event, ensuring smooth operations throughout the program.</p>
-            <p>Intelex : Explored emerging technologies and gained insights into innovative digital solutions and industry trends.</p>
-            <p>TVET Penyiasat Cilik Camp (SK Taman Maluri) : Helped introduce primary school students to basic cybersecurity awareness and digital safety in a fun, interactive environment.</p>
-            <p>CyberSecurity Malaysia Visit : Learned about real-world cyber threat monitoring, incident response, and the role of digital security professionals.</p>
-            <p>Swimming Competition  : Achieved 3rd Place in the medley swimming event, demonstrating discipline and perseverance.</p>
-            <p>Industrial Exposure: E-Commerce Systems  : Visited an industry partner to learn how large-scale e-commerce platforms manage web systems, online payments, and user traffic.</p>
-            <p>Cyber Security Hygiene Certification (Trainocate APAC Fund) : Completed training on cybersecurity fundamentals, including network security, data privacy, and cyber hygiene best practices.</p>
-          </div>
-        </section>
+            <div class="expanded-content">
+              <div class="expanded-title">PROJECTS</div>
+              <div class="expanded-elaboration">
+                <p>Throughout my Computer Science journey, I discovered that my interest in technology extends beyond just writing code. While web development sparked my passion for creating practical solutions, I also became fascinated by how data can uncover meaningful insights and how digital evidence can be analysed to solve cyber-related investigations. These experiences allowed me to explore three different areas of Computer Science—Web Development, Big Data Analytics, and Digital Forensics—each strengthening a different set of technical and problem-solving skills.</p>
+
+                <p>Web Development Projects</p>
+                <p>Building web applications has always been my primary interest. Throughout my degree, I developed several full-stack applications using PHP, MySQL, HTML, CSS, and JavaScript. My projects focused on creating secure, user-friendly systems with role-based authentication, database management, and responsive interfaces.</p>
+
+                <p><strong>Highlighted Projects:</strong></p>
+
+                <p>EduTrackUPNM - A Final Year Project that streamlines student application management through role-based access control and automated CRUD operations.</p>
+
+                <p>E-Library ALK - A digital library management system featuring customized dashboards, real-time tracking, and centralized data management for cadets and instructors.</p>
+
+                <p>Big Data Analytics Projects</p>
+                <p>As I explored data science, I learned how raw data can be transformed into valuable insights. Using Python and the CRISP-DM methodology, I worked with datasets containing over 1,000 records, performing data cleaning, preprocessing, statistical analysis, and visualization to support data-driven decision-making.</p>
+
+                <p>Digital Forensics Projects</p>
+                <p>My curiosity about cybersecurity led me to digital forensics, where I learned how to investigate and analyse digital evidence. I worked on verifying file integrity using MD5 and SHA-256 hashing, extracting EXIF metadata, and examining hexadecimal data with HxD to recover and analyse hidden or corrupted digital artifacts.</p>
+              </div>
+            </div>
+          </section>
+
+          <!--SKILLS SECTION-->
+          <section id="skills" class="portfolio-section">
+            <h1 class="section-title">Technical Skills</h1>
+            <p class="section-instruction">click to view</p>
+
+            <div class="expanded-content">
+              <div class="expanded-title">TECHNICAL SKILLS</div>
+              <div class="expanded-elaboration">
+                <p>I enjoy learning new technologies and improving my skills through projects and hands-on experience. The tools below are the foundation I've built throughout my studies, and I'm always looking for new things to learn. Even this portfolio is part of my learning journey—a fun project where I get to practice coding while building something meaningful.</p>
+
+                <ul>
+                  <li>Web Development: PHP, MySQL, HTML, CSS, JavaScript</li>
+                  <li>Big Data Analytics: Python, CRISP-DM</li>
+                  <li>Digital Forensics: Audacity, Open-Source Tools, HxD</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!--ACTIVITIES SECTION-->
+          <section id="activities" class="portfolio-section">
+            <h1 class="section-title">Activities</h1>
+            <p class="section-instruction">click to view</p>
+
+            <div class="expanded-content">
+
+              <div class="expanded-title">ACTIVITIES</div>
+              <div class="expanded-elaboration">
+                <p>Pewaris Karisma : Stepped out of my comfort zone through team challenges that strengthened my communication, teamwork, and leadership skills.</p>
+                <p>Event Management : Worked with a team to manage audio systems during a large-scale sports event, ensuring smooth operations throughout the program.</p>
+                <p>Intelex : Explored emerging technologies and gained insights into innovative digital solutions and industry trends.</p>
+                <p>TVET Penyiasat Cilik Camp (SK Taman Maluri) : Helped introduce primary school students to basic cybersecurity awareness and digital safety in a fun, interactive environment.</p>
+                <p>CyberSecurity Malaysia Visit : Learned about real-world cyber threat monitoring, incident response, and the role of digital security professionals.</p>
+                <p>Swimming Competition  : Achieved 3rd Place in the medley swimming event, demonstrating discipline and perseverance.</p>
+                <p>Industrial Exposure: E-Commerce Systems  : Visited an industry partner to learn how large-scale e-commerce platforms manage web systems, online payments, and user traffic.</p>
+                <p>Cyber Security Hygiene Certification (Trainocate APAC Fund) : Completed training on cybersecurity fundamentals, including network security, data privacy, and cyber hygiene best practices.</p>
+              </div>
+            </div>
+          </section>
+
+        </div>
       </div>
     </div>
-  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Draggable.min.js"></script>
-
-<script src="script.js"></script>
-</body>
+  <script src="script.js"></script>
+  </body>
 </html>

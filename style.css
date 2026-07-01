@@ -51,99 +51,6 @@ body, html {
     z-index: 0;
 }
 
-/* Positioning layout blocks explicitly across coordinates */
-.portfolio-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    justify-content: center;
-    background: #97825f;
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
-    border: none;
-    z-index: 1;
-    transition: width 0.4s ease-in-out, 
-                height 0.4s ease-in-out, 
-                background-color 0.3s;
-
-    /* ADD THIS LINE: Makes sure you can still click things inside your cards */
-    pointer-events: auto;
-}
-
-.portfolio-section.expanded {
-    width: 750px;         /* Expands much wider than the original 500px width */
-    height: 600px;        /* Gives it extra height to display more layout content */
-    background: #736142;  /* Optional: slightly deepens the color so it looks focused */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    
-    /* Ensures this expanded card floats cleanly over everything else */
-    z-index: 10;
-}
-
-/* Hide the extra content when the card is small */
-.expanded-content {
-    display: none;
-    margin-top: 20px;
-}
-
-/* Show the extra content ONLY when the parent card has the .expanded class! */
-.portfolio-section.expanded .expanded-content {
-    display: block;
-}
-
-/* Style the project title inside the expanded window */
-.portfolio-section.expanded h3 {
-    font-size: 28px;
-    color: #ffefd6;
-}
-
-/* Style the project text description inside the expanded window */
-.portfolio-section.expanded p {
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: justify;
-}
-
-/* ABOUT CARD */
-#about {
-    grid-area: about;
-    width: 500px;
-}
-.profile-picture{
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-#about-description {
-    text-align: justify;
-    font-size: 18px;
-    line-height: 1.5;
-}
-
-/* EDUCATION CARD */
-#education {
-    grid-area: education;
-}
-
-/* PROJECT CARD */
-#projects {
-    grid-area: projects;
-}
-
-/* SKILLS CARD */
-#skills {
-    grid-area: skills;
-}
-
-/* ACTIVITIES CARD */
-#activities {
-    grid-area: activities;
-}
-
 aside {
     grid-column: 1;;
     display : flex;
@@ -264,3 +171,215 @@ aside {
     color: #694305;
     font-weight: bold;
 }
+
+/* Positioning layout blocks explicitly across coordinates */
+.portfolio-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    background: #97825f;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: none;
+    z-index: 1;
+    transition: width 1s ease-in-out, 
+                height 1s ease-in-out, 
+                background-color 0.3s;
+
+    /* ADD THIS LINE: Makes sure you can still click things inside your cards */
+    pointer-events: auto;
+}
+
+.portfolio-section.expanded {
+    width: 800px;
+    height: auto;        /* Gives it extra height to display more layout content */
+    background: #362507;  /* Optional: slightly deepens the color so it looks focused */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+button.next-btn,
+button.prev-btn {
+    padding: 5px 20px;
+    font-size: 16px;
+    background-color: #694305;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hide the extra content when the card is small */
+.expanded-content {
+    display: none;
+}
+
+.portfolio-section.expanded .section-instruction,
+.portfolio-section.expanded .section-title {
+    display: none;
+}
+
+/* Show the extra content ONLY when the parent card has the .expanded class! */
+.portfolio-section.expanded .expanded-content {
+    display: block;
+    display: grid;
+    grid-template-rows: 30px 1fr 30px;
+    grid-template-columns: 1fr;
+    gap: 20px;
+
+    grid-template-areas: 
+                        "title"
+                        "visual"
+                        "controls";
+}
+
+.expanded-title {
+    grid-area: title;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.education-slides {
+    grid-area: visual;
+    align-self: center;
+    justify-self: center;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+.slider-controls {
+    grid-area: controls;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.portfolio-section.expanded .education-slides {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    grid-template-areas: 
+                        "image description";
+}
+
+.image-container {
+    grid-area: image;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.explaination-container{
+    grid-area: description;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.portfolio-section.expanded .education-slides {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    grid-template-areas: 
+                        "image description";
+}
+
+/* Style the project text description inside the expanded window */
+.expanded-elaboration {
+    grid-area: description;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    align-items: center;
+    text-decoration: none;
+}
+
+.portfolio-section.expanded .explaination-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.education-image { 
+    display: none;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+} 
+
+.education-image.active { 
+    display: block 
+}
+
+.education-date{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.expanded-elaboration { 
+    
+    display: none
+} 
+
+.expanded-elaboration.active { 
+    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* ABOUT CARD */
+#about {
+    grid-area: about;
+    width: 500px;
+}
+.profile-picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#about-description {
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* EDUCATION CARD */
+#education {
+    grid-area: education;
+}
+
+/* PROJECT CARD */
+#projects {
+    grid-area: projects;
+}
+
+/* SKILLS CARD */
+#skills {
+    grid-area: skills;
+}
+
+/* ACTIVITIES CARD */
+#activities {
+    grid-area: activities;
+}
+
