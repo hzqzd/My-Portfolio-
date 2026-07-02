@@ -301,7 +301,7 @@ button.prev-btn {
 }
 
 .portfolio-section.expanded .explaination-container,
-.portfolio-section.expanded .activities-expanded-elaboration{
+.portfolio-section.expanded .activities-explaination-container{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -310,7 +310,7 @@ button.prev-btn {
 }
 
 .education-image,
-.activities-image-container { 
+.activities-image { 
     display: none;
     object-fit: contain;
     width: 100%;
@@ -319,7 +319,7 @@ button.prev-btn {
 } 
 
 .education-image.active,
-.activities-image-container.active { 
+.activities-image.active { 
     display: block 
 }
 

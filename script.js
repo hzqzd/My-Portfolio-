@@ -112,45 +112,93 @@ allCards.forEach(card => {
     });
 });
 
-// 1. Grab all the slides and navigation buttons
-const explainations = document.querySelectorAll('.expanded-elaboration');
-const educationImages = document.querySelectorAll('.education-image');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
+// --- REUSABLE IMAGE + TEXT SLIDER ---
+// Builds a fully independent slider scoped to ONE section, so Education,
+// Activities (and anything else that follows this pattern) never interfere
+// with each other's buttons or slide index.
+//
+// sectionSelector : the section's id, e.g. '#education'
+// imageSelector   : class on the slide images inside that section
+// textSelector    : class on the matching text blocks inside that section
+function setupImageSlider(sectionSelector, imageSelector, textSelector) {
+    const section = document.querySelector(sectionSelector);
+    if (!section) return; // Bail out quietly if that section doesn't exist
 
-let currentSlideIndex = 0; // Track which slide number is currently on screen
+    // Only look for buttons/slides INSIDE this specific section
+    const prevBtn = section.querySelector('.prev-btn');
+    const nextBtn = section.querySelector('.next-btn');
+    const images = section.querySelectorAll(imageSelector);
+    const texts = section.querySelectorAll(textSelector);
 
-// 2. Create a function to refresh which slide gets shown
-function updateSlides() {
-    // Look through all slides, remove the 'active' class to hide them
-    explainations.forEach(explaination => explaination.classList.remove('active'));
-    educationImages.forEach(image => image.classList.remove('active'));
-    
-    // Add 'active' back to just the single slide at our current index tracking number
-    explainations[currentSlideIndex].classList.add('active');
-    educationImages[currentSlideIndex].classList.add('active');
+    let index = 0; // This section's own private slide tracker
+
+    function show(newIndex) {
+        images.forEach(img => img.classList.remove('active'));
+        texts.forEach(text => text.classList.remove('active'));
+
+        index = newIndex;
+        images[index]?.classList.add('active');
+        texts[index]?.classList.add('active');
+    }
+
+    nextBtn?.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevents the card from collapsing
+        show((index + 1) % images.length); // Wraps back to 0 at the end
+    });
+
+    prevBtn?.addEventListener('click', function(event) {
+        event.stopPropagation();
+        show((index - 1 + images.length) % images.length); // Wraps to the last slide
+    });
 }
 
-// 3. Monitor when the user clicks 'Next'
-nextBtn.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents the card click from triggering/closing
-    
-    currentSlideIndex++; // Move up by 1 slide position
-    if (currentSlideIndex >= explainations.length && educationImages.length > 0) 
-        {
-        currentSlideIndex = 0; // Loop back around to the first slide
-        }
-    updateSlides();
-});
+// Wire up each section that uses this image+text slider pattern
+setupImageSlider('#education', '.education-image', '.expanded-elaboration');
+setupImageSlider('#activities', '.activities-image', '.activities-expanded-elaboration');
 
-// 4. Monitor when the user clicks 'Prev'
-prevBtn.addEventListener('click', function(event) {
-    event.stopPropagation(); // Prevents conflicts
-    
-    currentSlideIndex--; // Go down by 1 slide position
-    if (currentSlideIndex < 0 && educationImages.length > 0) 
-        {
-        currentSlideIndex = explainations.length - 1; // Loop to the very last slide
-        }
-    updateSlides();
-});
+// --- SKILLS CATEGORY SWITCHER ---
+// Skills works a bit differently: instead of images + text, clicking a
+// title (WEB DEVELOPMENT / BIG DATA / DIGITAL FORENSICS) swaps which
+// tool-list-content panel is shown. The section's own prev/next buttons
+// now do the same thing, cycling through the three categories.
+function setupSkillsSlider() {
+    const section = document.querySelector('#skills');
+    if (!section) return;
+
+    const prevBtn = section.querySelector('.prev-btn');
+    const nextBtn = section.querySelector('.next-btn');
+    const titles = section.querySelectorAll('.skill-title');
+    const toolLists = section.querySelectorAll('.tool-list-content');
+
+    let index = 0;
+
+    function show(newIndex) {
+        titles.forEach(t => t.classList.remove('active'));
+        toolLists.forEach(list => list.classList.remove('active'));
+
+        index = newIndex;
+        titles[index].classList.add('active');
+        toolLists[index].classList.add('active');
+    }
+
+    // Clicking a title jumps straight to its matching panel
+    titles.forEach((title, i) => {
+        title.addEventListener('click', function(event) {
+            event.stopPropagation();
+            show(i);
+        });
+    });
+
+    // The section's prev/next buttons cycle through the categories too
+    nextBtn?.addEventListener('click', function(event) {
+        event.stopPropagation();
+        show((index + 1) % titles.length);
+    });
+
+    prevBtn?.addEventListener('click', function(event) {
+        event.stopPropagation();
+        show((index - 1 + titles.length) % titles.length);
+    });
+}
+
+setupSkillsSlider();
