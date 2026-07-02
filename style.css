@@ -244,7 +244,8 @@ button.prev-btn {
 }
 
 .education-slides,
-.activities-slides {
+.activities-slides,
+.expanded-project-container {
     grid-area: visual;
     align-self: center;
     justify-self: center;
@@ -261,7 +262,8 @@ button.prev-btn {
 }
 
 .portfolio-section.expanded .education-slides,
-.portfolio-section.expanded .activities-slides {
+.portfolio-section.expanded .activities-slides,
+.portfolio-section.expanded .project-slides {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
@@ -272,7 +274,8 @@ button.prev-btn {
 }
 
 .image-container,
-.activities-image-container {
+.activities-image-container,
+.project-image-container {
     grid-area: image;
     justify-self: center;
     align-self: center;
@@ -282,7 +285,8 @@ button.prev-btn {
 }
 
 .explaination-container,
-.activities-explaination-container {
+.activities-explaination-container,
+.project-explaination-container {
     grid-area: description;
     width: 100%;
     height: auto;
@@ -292,7 +296,8 @@ button.prev-btn {
 
 /* Style the project text description inside the expanded window */
 .expanded-elaboration,
-.activities-expanded-elaboration {
+.activities-expanded-elaboration,
+.project-expanded-elaboration {
     font-size: 16px;
     line-height: 1.6;
     text-align: justify;
@@ -301,7 +306,8 @@ button.prev-btn {
 }
 
 .portfolio-section.expanded .explaination-container,
-.portfolio-section.expanded .activities-explaination-container{
+.portfolio-section.expanded .activities-explaination-container,
+.portfolio-section.expanded .project-explaination-container{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -310,7 +316,8 @@ button.prev-btn {
 }
 
 .education-image,
-.activities-image { 
+.activities-image,
+.project-image { 
     display: none;
     object-fit: contain;
     width: 100%;
@@ -319,7 +326,8 @@ button.prev-btn {
 } 
 
 .education-image.active,
-.activities-image.active { 
+.activities-image.active,
+.project-image.active { 
     display: block 
 }
 
@@ -331,12 +339,14 @@ button.prev-btn {
 }
 
 .expanded-elaboration,
-.activities-expanded-elaboration { 
+.activities-expanded-elaboration,
+.project-expanded-elaboration { 
     display: none
 } 
 
 .expanded-elaboration.active,
-.activities-expanded-elaboration.active { 
+.activities-expanded-elaboration.active,
+.project-expanded-elaboration.active { 
     display: block;
     display: flex;
     flex-direction: column;
