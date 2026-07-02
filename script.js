@@ -37,8 +37,8 @@ Draggable.create("#canvas", {
 
 // Set the starting camera view position centered on load
 gsap.set("#canvas", { 
-    x: -0, 
-    y: -0
+    x: 0, 
+    y: 0
 });
 
 // 1. Find all the navigation links inside your sidebar

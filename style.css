@@ -243,7 +243,8 @@ button.prev-btn {
     text-align: center;
 }
 
-.education-slides {
+.education-slides,
+.activities-slides {
     grid-area: visual;
     align-self: center;
     justify-self: center;
@@ -259,7 +260,8 @@ button.prev-btn {
     gap: 20px;
 }
 
-.portfolio-section.expanded .education-slides {
+.portfolio-section.expanded .education-slides,
+.portfolio-section.expanded .activities-slides {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
@@ -269,7 +271,8 @@ button.prev-btn {
                         "image description";
 }
 
-.image-container {
+.image-container,
+.activities-image-container {
     grid-area: image;
     justify-self: center;
     align-self: center;
@@ -278,7 +281,8 @@ button.prev-btn {
     overflow: hidden;
 }
 
-.explaination-container{
+.explaination-container,
+.activities-explaination-container {
     grid-area: description;
     width: 100%;
     height: auto;
@@ -286,19 +290,9 @@ button.prev-btn {
     overflow: hidden;
 }
 
-.portfolio-section.expanded .education-slides {
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-
-    grid-template-areas: 
-                        "image description";
-}
-
 /* Style the project text description inside the expanded window */
-.expanded-elaboration {
-    grid-area: description;
+.expanded-elaboration,
+.activities-expanded-elaboration {
     font-size: 16px;
     line-height: 1.6;
     text-align: justify;
@@ -306,7 +300,8 @@ button.prev-btn {
     text-decoration: none;
 }
 
-.portfolio-section.expanded .explaination-container{
+.portfolio-section.expanded .explaination-container,
+.portfolio-section.expanded .activities-expanded-elaboration{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -314,7 +309,8 @@ button.prev-btn {
     gap: 20px;
 }
 
-.education-image { 
+.education-image,
+.activities-image-container { 
     display: none;
     object-fit: contain;
     width: 100%;
@@ -322,22 +318,25 @@ button.prev-btn {
     object-fit: contain;
 } 
 
-.education-image.active { 
+.education-image.active,
+.activities-image-container.active { 
     display: block 
 }
 
-.education-date{
+.education-date,
+.Activities-name{
     font-size: 20px;
     font-weight: bold;
     text-align: center;
 }
 
-.expanded-elaboration { 
-    
+.expanded-elaboration,
+.activities-expanded-elaboration { 
     display: none
 } 
 
-.expanded-elaboration.active { 
+.expanded-elaboration.active,
+.activities-expanded-elaboration.active { 
     display: block;
     display: flex;
     flex-direction: column;
@@ -376,6 +375,127 @@ button.prev-btn {
 /* SKILLS CARD */
 #skills {
     grid-area: skills;
+}
+
+.expanded-elaboration-skills { 
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    grid-template-areas: 
+                        "explain-skill  tools";
+}
+
+.explain-skill {
+    grid-area: explain-skill;
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: justify;
+    align-items: center;
+    text-decoration: none;
+}
+
+.tools {
+    grid-area: tools;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    text-align: center;
+    align-items: space-between;
+    gap: 20px;
+}
+
+.tool-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.tool-list-content{
+    display: none;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    
+    grid-template-areas: 
+                        "tool1 tool2 tool3 empty"
+                        "tool4 tool5 tool6 empty";
+}
+
+.tool-logo {
+    display: none;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tool-list-content.active {
+    display: grid; /* Reveal active set */
+}
+.tool-logo.active { 
+    display: block 
+}
+
+#html-logo {
+    grid-area: tool1;
+}
+
+#css-logo {
+    grid-area: tool2;
+}
+
+#js-logo {
+    grid-area: tool3;
+}
+
+#php-logo {
+    grid-area: tool4;
+}
+
+#mysql-logo {
+    grid-area: tool5;
+}
+
+#vscode-logo {
+    grid-area: tool6;
+}
+
+#coming-soon {
+    grid-area: empty;
+}
+
+#python-logo {
+    grid-area: tool1;
+}
+
+#jupyter-logo {
+    grid-area: tool2;
+}
+
+#sql-logo {
+    grid-area: tool4;
+}
+
+#data-processing-logo {
+    grid-area: tool5;
+}
+
+#hxd-logo {
+    grid-area: tool1;
+}
+
+#audacity-logo {
+    grid-area: tool2;
+}
+
+#autopsy-logo {
+    grid-area: tool4;
+}
+
+#open-source-logo {
+    grid-area: tool5;
 }
 
 /* ACTIVITIES CARD */
