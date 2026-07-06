@@ -2,7 +2,8 @@
 gsap.registerPlugin(Draggable);
 
 // 1. Create a function that calculates the limits based on the screen size
-function updateBounds() {
+function updateBounds() 
+{
     // Get the actual width and height of the visible right-side screen window
     const windowWidth = document.querySelector('.canvas-window').offsetWidth;
     const windowHeight = document.querySelector('.canvas-window').offsetHeight;
@@ -13,11 +14,11 @@ function updateBounds() {
 
     // Return the dynamically calculated bounding box configuration
     return { 
-        minX: calculatedMinX, 
-        maxX: 0, 
-        minY: calculatedMinY, 
-        maxY: 0 
-    };
+            minX: calculatedMinX, 
+            maxX: 0, 
+            minY: calculatedMinY, 
+            maxY: 0 
+            };
 }
 
 // 2. Initialize the Draggable engine using our automatic calculations
@@ -155,6 +156,7 @@ function setupImageSlider(sectionSelector, imageSelector, textSelector) {
 // Wire up each section that uses this image+text slider pattern
 setupImageSlider('#education', '.education-image', '.expanded-elaboration');
 setupImageSlider('#activities', '.activities-image', '.activities-expanded-elaboration');
+setupImageSlider('#projects', '.project-image', '.project-expanded-elaboration');
 
 // --- SKILLS CATEGORY SWITCHER ---
 // Skills works a bit differently: instead of images + text, clicking a
