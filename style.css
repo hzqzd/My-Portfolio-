@@ -290,7 +290,7 @@ button.prev-btn {
 .explaination-container,
 .activities-explaination-container,
 .project-explaination-container,
-.tools {
+.tool-list {
     grid-area: description;
     width: 100%;
     height: auto;
@@ -344,77 +344,32 @@ button.prev-btn {
 
 .expanded-elaboration,
 .activities-expanded-elaboration,
-.project-expanded-elaboration { 
+.project-expanded-elaboration,
+.tool-list-content{ 
     display: none
 } 
 
 .expanded-elaboration.active,
 .activities-expanded-elaboration.active,
-.project-expanded-elaboration.active { 
+.project-expanded-elaboration.active,
+.tool-list-content.active { 
     display: block;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 20px;
-}
-
-.tools {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-
-    gap: 20px;
-    grid-template-areas: 
-                        "used"
-                        "list";
-}
-
-.tool-used-for {
-    grid-area: used;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.used-tools {
-    display: none;
-}
-
-.used-tools .active {
-    display: block;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.tool-list {
-    grid-area: list;
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    overflow: hidden;
 }
 
 .portfolio-section.expanded .tool-list-content {
-    display: none;
     display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 10% 1fr 1fr;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     
     grid-template-areas: 
-                        "tool1 tool2 tool3 empty"
-                        "tool4 tool5 tool6 empty";
-}
-
-.tool-list-content {
-    display: none;
-}
-
-.tool-list-content.active {
-    display: grid;
+                        "usedFor    usedFor     usedFor     usedFor"
+                        "tool1      tool2       tool3       empty"
+                        "tool4      tool5       tool6       empty";
 }
 
 .tool-logo {
@@ -424,6 +379,12 @@ button.prev-btn {
 }
 
 /* Positioning each tool logo for web dev explicitly across coordinates */
+.used-tools {
+    grid-area: usedFor;
+    align-self: center;
+    justify-self: center;
+}
+
 #html-logo{
     grid-area: tool1;
 }
@@ -447,6 +408,8 @@ button.prev-btn {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    align-self: center;
+    justify-self: center;
 }
 
 /* Positioning each tool logo for big data explicitly across coordinates */
@@ -462,12 +425,6 @@ button.prev-btn {
 #data-processing-logo{
     grid-area: tool5;
 }
-#keep-learning{
-    grid-area: empty;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-}
 
 /* Positioning each tool logo for digital forensics explicitly across coordinates */
 #hxd-logo{
@@ -481,12 +438,6 @@ button.prev-btn {
 }
 #open-source-logo{
     grid-area: tool5;
-}
-#keep-learning{
-    grid-area: empty;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
 }
 
 /* ABOUT CARD */
