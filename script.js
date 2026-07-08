@@ -36,11 +36,14 @@ Draggable.create("#canvas", {
     }
 });
 
-// Set the starting camera view position centered on load
-gsap.set("#canvas", { 
-    x: 0, 
-    y: 0
-});
+// Set the starting camera view position centered on the About section
+const aboutSection = document.querySelector('#about');
+if (aboutSection) {
+    centerSection(aboutSection, true); // true = jump instantly, no slide animation
+} else {
+    // Fallback in case #about is ever renamed/removed
+    gsap.set("#canvas", { x: 0, y: 0 });
+}
 
 // 1. Find all the navigation links inside your sidebar
 const navLinks = document.querySelectorAll('.nav-links a');
@@ -64,7 +67,7 @@ navLinks.forEach(link => {
     });
 });
 
-function centerSection(section) {
+function centerSection(section, instant = false) {
     // A. Get the size of the visible viewing window
     const windowWidth = document.querySelector('.canvas-window').offsetWidth;
     const windowHeight = document.querySelector('.canvas-window').offsetHeight;
@@ -88,7 +91,7 @@ function centerSection(section) {
     gsap.to("#canvas", {
         x: targetX,
         y: targetY,
-        duration: 1.5,
+        duration: instant ? 0 : 1.5,
         ease: "power2.out"
     });
 }
@@ -169,7 +172,7 @@ function setupSkillsSlider() {
 
     const prevBtn = section.querySelector('.prev-btn');
     const nextBtn = section.querySelector('.next-btn');
-    const titles = section.querySelectorAll('.skill-title');
+    const titles = section.querySelectorAll('.used-tools');
     const toolLists = section.querySelectorAll('.tool-list-content');
 
     let index = 0;
