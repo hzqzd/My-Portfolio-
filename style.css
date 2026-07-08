@@ -154,22 +154,35 @@ aside {
     box-shadow: 0 4px 12px rgba(105, 67, 5, 0.2); /* Adds a soft floating shadow underneath */
 }
 
-.social-links {
+.social-logo{
+    width: 50px;
+    height: 50;
+    object-fit: contain;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.social-links{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 0;
+    gap: 10px;
 }
 
 .social-links a {
-    display: block;
-    width: 100%;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: #694305;
+    font-size: 14px;
     font-weight: bold;
+    gap: 5px;
+}
+
+#gmail{
+    height: 50px;
 }
 
 /* Positioning layout blocks explicitly across coordinates */
@@ -198,6 +211,29 @@ aside {
     height: auto;        /* Gives it extra height to display more layout content */
     background: #362507;  /* Optional: slightly deepens the color so it looks focused */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 1. Trigger the shaking animation when hovered */
+.portfolio-section:not(.expanded):hover {
+    cursor: pointer;
+    /* Runs our 'shake' keyframes over 0.5s, loops infinitely, and starts smoothly */
+    animation: shakeCard 1s ease-in-out infinite;
+    
+    /* Slightly deepens the card shadow while it woggles to create a lifting effect */
+    box-shadow: 0 12px 24px rgba(105, 67, 5, 0.2);
+    transform: scale(1.1) translateY(-3px); 
+}
+
+/* 2. Define the shaking movement path using keyframes */
+@keyframes shakeCard {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    15%  { transform: translate(-2px, 1px) rotate(-0.5deg); }
+    30%  { transform: translate(1px, -1px) rotate(0.5deg); }
+    45%  { transform: translate(-1px, -1px) rotate(-0.3deg); }
+    60%  { transform: translate(2px, 1px) rotate(0.3deg); }
+    75%  { transform: translate(-1px, 1px) rotate(-0.2deg); }
+    90%  { transform: translate(1px, -1px) rotate(0.2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
 }
 
 button.next-btn,
