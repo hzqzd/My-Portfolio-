@@ -5,12 +5,20 @@ gsap.registerPlugin(Draggable);
 function updateBounds() 
 {
     // Get the actual width and height of the visible right-side screen window
-    const windowWidth = document.querySelector('.canvas-window').offsetWidth;
-    const windowHeight = document.querySelector('.canvas-window').offsetHeight;
+    const canvasWindow = document.querySelector('.canvas-window');
+    const canvasEl = document.querySelector('#canvas');
+    const windowWidth = canvasWindow.offsetWidth;
+    const windowHeight = canvasWindow.offsetHeight;
 
-    // Calculate the maximum negative drag limits (Screen Size - 3000px Canvas)
-    const calculatedMinX = windowWidth - 3000;
-    const calculatedMinY = windowHeight - 3000;
+    // Read the canvas's ACTUAL rendered size instead of a hardcoded number.
+    // This means the bounds stay correct even when CSS media queries shrink
+    // the canvas down for smaller/mobile screens.
+    const canvasWidth = canvasEl.offsetWidth;
+    const canvasHeight = canvasEl.offsetHeight;
+
+    // Calculate the maximum negative drag limits (Screen Size - Canvas Size)
+    const calculatedMinX = windowWidth - canvasWidth;
+    const calculatedMinY = windowHeight - canvasHeight;
 
     // Return the dynamically calculated bounding box configuration
     return { 
@@ -22,7 +30,7 @@ function updateBounds()
 }
 
 // 2. Initialize the Draggable engine using our automatic calculations
-Draggable.create("#canvas", {
+const [canvasDraggable] = Draggable.create("#canvas", {
     type: "x,y",
     edgeResistance: 0.65,
     inertia: true,
@@ -34,6 +42,16 @@ Draggable.create("#canvas", {
     onPress: function() {
         this.updateBounds(updateBounds());
     }
+});
+
+// Keep bounds (and the current camera position) correct if the viewport
+// changes size, e.g. rotating a phone or resizing a browser window.
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        canvasDraggable.applyBounds(updateBounds());
+    }, 150);
 });
 
 // Set the starting camera view position centered on the About section
@@ -207,3 +225,42 @@ function setupSkillsSlider() {
 }
 
 setupSkillsSlider();
+
+// --- MOBILE NAV TOGGLE ---
+// On small screens the sidebar becomes an off-canvas drawer. This wires up
+// the hamburger button to slide it in/out, plus a dimmed overlay and
+// auto-close behavior so it feels natural on touch devices.
+const navToggleBtn = document.querySelector('#nav-toggle');
+const sidebar = document.querySelector('#main-sidebar');
+const navOverlay = document.querySelector('#nav-overlay');
+
+function openNav() {
+    sidebar.classList.add('nav-open');
+    navOverlay.classList.add('active');
+    navToggleBtn.classList.add('active');
+    navToggleBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeNav() {
+    sidebar.classList.remove('nav-open');
+    navOverlay.classList.remove('active');
+    navToggleBtn.classList.remove('active');
+    navToggleBtn.setAttribute('aria-expanded', 'false');
+}
+
+navToggleBtn?.addEventListener('click', function() {
+    if (sidebar.classList.contains('nav-open')) {
+        closeNav();
+    } else {
+        openNav();
+    }
+});
+
+// Tapping the dimmed background closes the drawer
+navOverlay?.addEventListener('click', closeNav);
+
+// Picking a section link should also close the drawer so the canvas
+// underneath is visible right away
+navLinks.forEach(link => {
+    link.addEventListener('click', closeNav);
+});
