@@ -40,7 +40,7 @@ const [canvasDraggable] = Draggable.create("#canvas", {
     
     // Optional: Recalculate bounds on the fly if the user resizes their browser window
     onPress: function() {
-        this.updateBounds(updateBounds());
+        this.applyBounds(updateBounds());
     }
 });
 
@@ -130,6 +130,13 @@ allCards.forEach(card => {
         // Go to its class list, look for the word "expanded". 
         // If it's not there, add it. If it is there, delete it.
         this.classList.toggle('expanded');
+
+        // The expanded card is much taller than the collapsed one
+        // (especially on mobile, where collapsed cards are tiny).
+        // Without recentering, the newly-grown card can end up mostly
+        // above the visible screen with no way to scroll up to it.
+        // Recentering the camera on it keeps it fully in view.
+        centerSection(this);
         
     });
 });

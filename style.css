@@ -592,6 +592,8 @@ button.prev-btn {
         transform: translateX(-100%);
         width: 240px;
         max-width: 80vw;
+        height: 100vh;
+        overflow-y: auto; /* Scrolls internally if content is taller than a short landscape screen */
         transition: transform 0.3s ease-in-out;
         z-index: 1200;
     }
@@ -604,14 +606,20 @@ button.prev-btn {
         grid-column: 1; /* Fills the whole width now that aside is not a grid column */
     }
 
-    /* Shrink the pannable canvas + cards so they suit a phone screen */
+    /* Shrink the pannable canvas + cards so they suit a phone screen.
+       Height/width include a viewport-relative buffer (the "+ 110vh" /
+       "+ 20vw" parts) so there's always empty canvas space around the
+       edge cards. Without it, an expanded card living in the top or
+       bottom row has nowhere to pan into and gets clipped off-screen
+       when it grows taller than its collapsed state. */
     .canvas {
-        width: 1600px;
-        height: 1600px;
+        width: calc(1500px + 20vw);
+        height: calc(1284px + 110vh);
         background-size: 28px 28px;
         gap: 12px;
 
         grid-template-rows: repeat(3, 420px);
+        place-content: center; /* centers the grid tracks within all that buffer space */
     }
 
     .portfolio-section {
@@ -668,15 +676,25 @@ button.prev-btn {
         font-size: 14px;
     }
 
-    /* Skills tool grid: 2 columns instead of 4 so logos aren't squeezed */
+    /* Skills tool grid: 2 columns instead of 4 so logos aren't squeezed.
+       The desktop version reserves a whole 4th column ("empty" area) for
+       the "More tools coming soon!" text; that area doesn't exist in this
+       2-column layout, so we give it its own full-width row instead —
+       otherwise it gets auto-placed and can land on top of a logo. */
     .portfolio-section.expanded .tool-list-content.active {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto repeat(3, auto) auto;
         grid-template-areas:
                             "usedFor    usedFor"
                             "tool1      tool2"
                             "tool3      tool4"
-                            "tool5      tool6";
+                            "tool5      tool6"
+                            "keepLearning keepLearning";
         gap: 12px;
+    }
+
+    .portfolio-section.expanded .tool-list-content.active #keep-learning {
+        grid-area: keepLearning;
     }
 
     .tool-logo {
@@ -693,8 +711,8 @@ button.prev-btn {
 /* Extra-small phones */
 @media (max-width: 400px) {
     .canvas {
-        width: 1300px;
-        height: 1300px;
+        width: calc(1100px + 20vw);
+        height: calc(1104px + 110vh);
         grid-template-rows: repeat(3, 360px);
     }
 
